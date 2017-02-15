@@ -1,3 +1,0 @@
-Using log file /tmp/vmware-jholloway/vmware-view.bin-4279.log
-Feb 15 09:37:36.718: vmware-view.bin 4279| PCoIP Client(4288): CreateMKSInterface: forcing mount, Remote MKS already present
-Feb 15 09:37:36.718: vmware-view.bin 4279| PCoIP Client(4288): OnMountUnmount: (0, 0) 1920 X 1080.
