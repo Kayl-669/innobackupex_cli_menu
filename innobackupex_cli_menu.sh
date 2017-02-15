@@ -1,6 +1,6 @@
 #!/bin/bash
 # SCRIPT SETTINGS
-VERSION=20170214
+VERSION=20170215
 logfile="$(basename $0).log-$(date +%y%m%d%H%M%S)" # $0 is path to script
 
 # SCHEDULE
