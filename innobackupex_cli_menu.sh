@@ -1081,8 +1081,10 @@ schedule() {
     	    _newdir=$(echo $backup_location | sed 's/\//\\\//g')
     	    sed -i -- "s/^backup_location=.*/backup_location="${_newdir}"/" $_parent_backup_location/$(basename $0)
     	    do_full_bbu $_type
-            _session_name=`echo $target_mysql_host | sed -e 's/\./-/g'`
-            tmux split-window -t $_session_name "watch -n 10 du -sh $_parent_backup_location"
+            if [[ ${#_session_name} -eq 0 ]]; then
+            	_session_name=`echo $target_mysql_host | sed -e 's/\./-/g'`
+            	tmux split-window -t $_session_name "watch -n 10 du -sh $_parent_backup_location"
+            fi
     	    SECONDS=0
     	else if [[ $SECONDS -ge $_incr_elapsed_seconds_threshold ]]; then
     	    do_incr_bbu $_type
