@@ -18,7 +18,7 @@ Although innobackupex is very easy to use (it is itself a convenience script for
 
 ## Limitations
 
-* Restoring *from* backups will only work when the target MySQL server is stand-alone rather than clustered. *Taking* backups from clustered nodes is supported however.
+* *Restoring from* backups will only work when the target MySQL server is stand-alone rather than clustered. *Taking backups* from clustered nodes is supported however.
 * MySQL client connection username/password and encryption key currently stored as clear text in script. No less secure than other DBA scripts.
 * Point-in-time recovery is possible (based on incremental binlogs being stored with backups) but is not automated via the menu-interface. Full recovery from incremental backups is supported however.
 * The scheduling functionality currently only supports doing a single full backup once every 24 hours. *innobackupex_cli_menus’s* user has to specify the time that this takes place and then specifies the period the script should wait before doing each and every incremental backup.
