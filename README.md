@@ -30,7 +30,7 @@ Write permissions on the target MySQL server's datadir are required to restore b
 The target MySQL server needs to be setup with two sets of grants for *innobackupex_cli_menu.sh* to be able to interact with it:
 
 ~~~~
-GRANT SELECT, SHOW DATABASES, CREATE, DROP, CREATE TABLESPACE, ALTER ON *.* 
+GRANT SELECT, SHOW DATABASES, CREATE, DROP, CREATE TABLESPACE, ALTER, REPLICATION SLAVE ON *.* 
 TO <script_mysql_user>@<innobackupex_cli_menu script host> 
 IDENTIFIED BY <script_mysql_user_pw>;
 

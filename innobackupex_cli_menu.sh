@@ -622,7 +622,7 @@ do_incr_bbu() {
         --raw \
         --to-last-log \
         --result-file=$_bu_path/binlogs/ \
-        $_incremental_from_binlog
+        $_incremental_from_binlog 2>$logfile
 
     if [[ $encryption == YES ]]; then
         echo "Decrypting xtrabackup log files..." >>$logfile
