@@ -1084,7 +1084,9 @@ schedule() {
     	    do_full_bbu $_type
             if [[ ${#_session_name} -eq 0 ]]; then
             	_session_name=`echo $target_mysql_host | sed -e 's/\./-/g'`
-            	tmux split-window -t $_session_name "watch -n 10 du -sh $_parent_backup_location"
+                # old fallback just in case
+                #tmux split-window -t $_session_name "watch -n 10 du -sh $_parent_backup_location"
+                tmux split-window -t $_session_name "watch -n 10 'find $_parent_backup_location - type d -iname '*incr*' -o -iname '*full*' | xargs du -sh '"
             fi
     	    SECONDS=0
     	else if [[ $SECONDS -ge $_incr_elapsed_seconds_threshold ]]; then
