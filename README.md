@@ -14,7 +14,7 @@ This documentation relates to the *innobackupex_cli_menu.sh* script.
 * Preparing/restoring and leaving in compressed and/or encrypted state.
 
 ## Use cases
-Although innobackupex is very easy to use (it is itself a convenience script for the xtrabackup binary), the number operations required to perform an entire backup routine - including executing full and incremental backups, managing lists of tables for partial backups, storing and restoring from compressed and/or encrypted files - means that consistently performing backups in an automated fashion calls for another wrapper script.
+Although innobackupex is very easy to use (it is itself a convenience script for the xtrabackup binary), the number operations required to perform an entire backup routine - including executing full and incremental backups, managing lists of tables for partial backups, storing and restoring from compressed and/or encrypted files - means that consistently performing backups in an automated fashion calls for a convenience script.
 
 ## Limitations
 
