@@ -21,6 +21,7 @@ backup_location=/var/lib/mysql_cache/bu
 compaction=NO # (skip secondary index pages) DONT USE THIS - UNABLE TO RESTORE SUCCESSFULLY
 compression=YES
 encryption=YES
+# Use `openssl rand -base64 24` to generate an encrypt_key
 encrypt_key="32CHARACTERENCRYPTIONKEY"
 
 # MySQL Login Credentials
