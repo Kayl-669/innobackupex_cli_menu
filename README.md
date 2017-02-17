@@ -58,7 +58,7 @@ IDENTIFIED BY <script_mysql_user_pw>;
 ## Improvements Required
 1. When the *innobackupex_cli_menu.sh* script is launched whilst configured to target a remote host that is unreachable the script will appear to fail to start properly. The solution is to CTRL-C the script to exit, edit the script and change the value of the target_mysql_host variable that appears in the first section of the script. You can run the script again and will see the full menu if the target host is reachable over the network.
 
-## How-to: take a full streaming binary backup (compressed and encrypted)
+## How to take a full streaming binary backup (compressed and encrypted)
 
 1. Run *innobackupex_cli_menu.sh*. To take advantage of using a tmux session, use:
 
@@ -90,7 +90,7 @@ IDENTIFIED BY <script_mysql_user_pw>;
     * Note: this will be compressed and encrypted if these settings are set to YES inside the script.
 7. A log file produced by the *innobackupex_cli_menu.sh* script is stored locally at the backup path.
 
-## How-to: Restore the entirety of a backup to the datadir of a remote host
+## How to restore the entirety of a backup to the datadir of a remote host
 1. Run *innobackupex_cli_menu.sh*. To take advantage of using a tmux session, use:
     `tmux new-session -d -s my_session_name ./innobackupex_cli_menu.sh && tmux attach -t my_session_name`
 
@@ -124,7 +124,7 @@ IDENTIFIED BY <script_mysql_user_pw>;
 6. (Optional) Enter 6 to fully prepare the backup - rolling backup uncommitted transactions. On the plus side, this reduces the startup time of the server once you’ve restored the data. On the otherhand, you can't continue to do incremental backups on top of backups that have been fully prepared.
 7. (Ensuring the target server is stopped) Enter 7 to copy the backup files to the target host’s datadir, additionally changing their ownership to the *mysql* system user. *innobackupex_cli_menu.sh* then gives you the option to start the target MySQL service. **Note:** internally the script uses `service mysql start` which may not be useful for bootstrapping.
 
-## How-to: Create a backup routine to backup a single database
+## How to create a backup routine to backup a single database
 Note: the backup script currently only supports doing a full backup once every 24 hours. It’s user has to specify the time that this takes place and then specifies the period the script should wait before doing each and every incremental backup.
 
 The easiest way to select a single database to do a partial backup from is to edit the repl.cnf file in the same directory as the innobackupex_cli_menu.sh script. This file is just like any other repl.cnf file; you use replicate-do-table and replicate-wild-do-table parameters to identify single tables and groups of tables, respectively.
@@ -173,7 +173,7 @@ For example, to enable a partial backup of the just the insuranceinitiatives dat
     * Also a copy of the innobackupex_cli_menu script and its dependencies are are also moved here. Use this copy of the script to manage the backup because the backup location is automatically configured in it to point at the most recent full and incremental backups.
 
 
-## How-to: Restore a single database from a backup to a remote MySQL server
+## How to restore a single database from a backup to a remote MySQL server
 Note: This routine has not been tested on clustered nodes - take nodes out of the cluster before bootstrapping.
 
 1. Follow steps 1-6 from Routine: Restore the entirety of a backup to the datadir of a remote host
